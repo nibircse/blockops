@@ -7,9 +7,9 @@ Dapps with their Ethereum Smart Contracts onto test and production blockchains.
 
 ## What does it do?
 
-It makes life easy and increases productivity. We've automated the use of
-patterns and tools to increase productivity and reduce error in the Dapp
-development lifecycle:
+It makes life easy and increases productivity for Dapp developers by
+automating the use of patterns and tools to remove human error in the Dapp
+development and operations lifecycle:
 
 1. change the code
 2. unit test it
@@ -18,9 +18,13 @@ development lifecycle:
 5. verification test
 6. deploy to a production network
 
-And do this over and over again with reproducable results without human error.
-The blockchain is complex enough with all the different moving parts. Let's not
-make it harder than it needs to be.
+It helps cycle over and over again with reproducable results so you can spend
+your time working on your Solidity Smart Contracts and Dapp code.
+
+> Hence the name, blockops!
+
+The blockchain is complex enough with several moving parts. Let's not make it
+harder than it needs to be with proper blockchain devops.
 
 ## Is Blockops something you should use?
 
@@ -33,10 +37,16 @@ Ask yourself:
 test lifecycle?
 5. Do you lack the knowhow to create your own blockchain network or sidechain?
 6. Do you lack the infrastructure needed to do so?
+7. Need something to guide and show you how it is done right?
 
 If you answered yes to any of these questions then Blockops is what you are
-looking for. Developing reliable and tested Dapps is a PITA without the tools
-and configuration management to make the process simple and easy.
+looking for. Developing reliable and tested Dapps is a PITA without the tools,
+configuration management, and infrastructure to make the process simple and
+easy.
+
+Plus because the project uses a Subutai Blueprint, you and your friends
+can instantly setup infrastructure across shared resources to run your Dapps
+on your own P2P cloud for testing, development, and even production.
 
 ## Testing Integration
 
