@@ -1,7 +1,7 @@
 {
     "name": "${environmentName}",
     "description": "Black mamba",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "author": "https://github.com/absidish",
     "containers": [
         {
@@ -25,12 +25,28 @@
         }
     ],
     "ansible-configuration": {
-        "source-url": "https://github.com/subutai-blueprints/black-mamba/archive/master.zip",
+        "source-url": "https://github.com/subutai-io/blockops/archive/master.zip",
         "ansible-playbook": "install-tools.yml",
         "extra-vars": [
             {
-                "key": "message",
-                "value": "${message}"
+                "key": "account",
+                "value": "${account}"
+            },
+            {
+                "key": "host",
+                "value": "${host}"
+            },
+            {
+                "key": "port",
+                "value": "${port}"
+            },
+            {
+                "key": "network_id",
+                "value": "${networkid}"
+            },
+            {
+                "key": "private_key_pwd",
+                "value": "${privatekeypwd}"
             }
         ],
         "groups": [
@@ -55,7 +71,7 @@
             "default": "change.the.domain",
             "validation": "[a-zA-Z0-9]+"
         },
-        "webContainerName": {
+        "containerName": {
             "description": "Enter the container's hostname",
             "type": "string",
             "default": "wp",
@@ -64,13 +80,43 @@
         "containerSize": {
             "description": "Container Size",
             "type": "enum",
-            "default": "TINY",
-            "validation": "TINY,SMALL,MEDIUM,LARGE,HUGE"
+            "default": "LARGE",
+            "validation": "MEDIUM,LARGE,HUGE"
         },
         "message": {
             "description": "Enter the message",
             "type": "string",
             "default": "message",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "account": {
+            "description": "Account",
+            "type": "string",
+            "default": "0x2EC5973E8847099E0234a1c567997d8fCDfE545C",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "host": {
+            "description": "host",
+            "type": "string",
+            "default": "85.93.89.128",
+            "validation": "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+        },
+        "port": {
+            "description": "port",
+            "type": "string",
+            "default": "8549",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "networkid": {
+            "description": "network_id",
+            "type": "string",
+            "default": "2059",
+            "validation": "[a-zA-Z0-9]+"
+        },
+        "privatekeypwd": {
+            "description": "private_key_pwd",
+            "type": "string",
+            "default": "mnbv1234",
             "validation": "[a-zA-Z0-9]+"
         }
     }
