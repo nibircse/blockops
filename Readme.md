@@ -1,7 +1,7 @@
 # Blockops: Blockchain Devops
 
 This repository is a project template for Ethereum Blockchain based Dapp
-projects. It uses the best of breed patterns and tools to rapidly develope
+projects. It uses the best of breed patterns and tools to rapidly develop
 and deploy Dapps and their Ethereum Smart Contracts onto the blockchain.
 
 ## Is Blockops something you should use?
