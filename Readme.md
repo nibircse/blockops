@@ -89,8 +89,9 @@ This template comes with an example market maker (cryptocurrency exchange
 component) Dapp. You can install this to test the template then replace the
 Dapp with your own.
 
->> NOTE: this is a trivial application and not intended for production so we
-accept no liability or make no guarantees. Use it at your own risk.
+> NOTE: The market maker is a trivial application and not intended for
+production so we accept no liability or make no guarantees. Use it at your
+own risk.
 
 ### Install dependencies
 ```
