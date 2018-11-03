@@ -1,37 +1,48 @@
-# Black Mamba Blueprint
+# Blockops: Blockchain Devops
 
-Blueprint to create a Marcov Chain Monte Carlo simulation using Mamba
-and Julia with simulation actions directly impacting Solidity contracts
-on an Ethereum Sidechain.
+This repository is a project template for Ethereum Blockchain based Dapp
+projects. It uses the best of breed patterns and tools to rapidly develope
+and deploy Dapps and their Ethereum Smart Contracts onto the blockchain.
 
-This approach allows for system wide integration testing to find faults in
-complex blockchain applications based on several Solidity contracts. It provides
-a foundation for thoroughly future proofing autonomus systems like market makers
-and independent SIPS systems.
+## Is Blockops something you should use?
 
-## Ethereum Sidechain
+Ask yourself:
 
-By default a 4 node sidechain is created across 4 peers. This can be modified
-during blueprint deployment via parameters specified in the wizard.
+1. Are you just starting to develop Solidity based Smart Contracts?
+2. Are you new to the tools and deployment patters around blockchain?
+3. Do you want to get up and running rapidly?
+4. Do you want a pre-packaged project to facilitate the change, deploy, and
+test lifecycle?
+5. Do you lack the knowhow to create your own blockchain network or sidechain?
+6. Do you lack the infrastructure needed to do so?
 
-## Julia Worker Nodes
+If you answered yes to any of these questions then Blockops is what you are
+looking for. Developing reliable and tested Dapps is a PITA without the tools
+and configuration management to make the process simple and easy.
 
-The same sidechain containers are used to parallelize the simulation. Julia is
-installed on them and the nodes are made available to a master Julia node as
-worker nodes.
+## Project Drivers
 
-## Jupyter Container
+We found ourselves always having to recreate the same skeletal infrastructure
+every time we wanted to start on a new Dapp. That usually sucked a day or two
+of time so we wanted the machines to handle this for us in minutes at a press
+of a button.
 
-This container has Jupyter installed on it to provide a interactive notebook
-for data scientists.
+Doing this manually produced different results so again we knew the machines
+can do it better and more reliably. Some developers don't think certain things
+like running test cases before deploying are important. This template requires
+that before deploying contracts onto sidechains or private networks.
 
-## Julia and Solidity Development Desktop
+It was created for those interested in doing things right, properly, with a
+hard core approach that is the same every time.
 
-This is a MATE based desktop container that Subutai users can remote desktop to
-for developing Solidity contracts and deploying them to the blockchain to be
-simulation tested for future proofing systems using Mamba and Julia.
+## Using the Example Application
 
-# Development
+This template comes with an example market maker (cryptocurrency exchange
+component) Dapp. You can install this to test the template then replace the
+Dapp with your own.
+
+>> NOTE: this is a trivial application and not intended for production so we
+accept no liability or make no guarantees. Use it at your own risk.
 
 ### Install dependencies
 ```
