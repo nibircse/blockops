@@ -1,0 +1,34 @@
+# See Configuration Parameters
+# https://github.com/subutai-io/vagrant/wiki/Configuration-Parameters
+# -----------------------------------------------------------------------------
+
+# Basic Parameters
+# -----------------------------------------------------------------------------
+SUBUTAI_ENV: prod
+SUBUTAI_PEER: false
+SUBUTAI_RAM: 6144
+SUBUTAI_CPU: 2
+SUBUTAI_DISK: 100
+SUBUTAI_NAME: blockops
+SUBUTAI_DESKTOP: true
+SUBUTAI_SCOPE: Shared
+SUBUTAI_USERNAME: admin
+
+PROVISION: true
+
+# Specify them in your personal settings
+# $HOME/.vagrant-subutai/vagrant-subutai.yml
+# -----------------------------------------------------------------------------
+# SUBUTAI_PASSWORD: secret
+# AUTHORIZED_KEYS: ~/.ssh/authorized_keys
+
+# Bazaar Configuration Parameters
+BAZAAR_NO_AUTO: true
+# BAZAAR_EMAIL: foobar@example.com
+# BAZAAR_PASSWORD: ultrasecret
+#
+# USER_VERIABLES: {"environmentName": "blockops"}
+# SUBUTAI_ENV_TYPE: bazaar or peer
+# 
+# BRIDGE: br0
+
