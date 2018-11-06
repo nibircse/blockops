@@ -50,7 +50,7 @@ contract MarketMaker
         //transfer GW from market maker address to khan seller address
         ERC20(gwAddress).transfer(msg.sender, gwToTransfer);
         
-        checkGwBlanace();
+        checkBlanace();
         //call event to log
         emit exchange( msg.sender, khanAmount, gwToTransfer, "KHAN", "GW" );
     }
@@ -70,12 +70,12 @@ contract MarketMaker
         //transfer KHAN from market maker address to GW seller address
         ERC20(khanAddress).transfer(msg.sender, khanToTransfer);
         
-        checkGwBlanace();
+        checkBlanace();
         //call event to log
         emit exchange( msg.sender, gwAmount, khanToTransfer, "GW", "KHAN" );
     }
     
-    function checkGwBlanace () public {
+    function checkBlanace () public {
         
         if( ERC20(gwAddress).balanceOf(address(this)) < minTokenBalance) 
         {
