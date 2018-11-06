@@ -17,6 +17,9 @@ contract MarketMaker
 {
     address public khanAddress;
     address public gwAddress;
+    uint maxValueToExchange;
+    uint buyOnMinAmount;
+    uint minTokenBalance;
     
     //event is called on each token exchange 
     event exchange( address indexed from, uint inputToken, uint outputToken, string fromToken, string toToken );
@@ -24,15 +27,19 @@ contract MarketMaker
     //"0xfAB9D5b3504Fa717cB87A61534240503b60b0F92","0x27F5BB4edEeAD3854A89e9fe6ac2467A1aB5cbD4"
     // @khanTokenAddress
     // @gwTokenAddress
-    constructor (address khanTokenAddress, address gwTokenAddress) public {
+    constructor (address khanTokenAddress, address gwTokenAddress, uint maxExValue, uint minBalance, uint buyAmount) public {
         khanAddress = khanTokenAddress;
         gwAddress = gwTokenAddress;
+        
+        maxValueToExchange = maxExValue;
+        buyOnMinAmount = buyAmount;
+        minTokenBalance = minBalance;
     }
 
     // @khanAmount amount of khan tokens in wei
     function exchangeKHANtoGW( uint khanAmount ) public {
         
-        require( khanAmount < 50000000000000000000 );
+        require( khanAmount < maxValueToExchange );
 
         uint gwToTransfer = getGWToTransfer( khanAmount );
 
@@ -43,19 +50,16 @@ contract MarketMaker
         //transfer GW from market maker address to khan seller address
         ERC20(gwAddress).transfer(msg.sender, gwToTransfer);
         
+        checkGwBlanace();
         //call event to log
         emit exchange( msg.sender, khanAmount, gwToTransfer, "KHAN", "GW" );
     }
-
-    // @khanAmount 
-    function getGWToTransfer( uint khanAmount ) public returns (uint) {
-        return khanAmount * getGWAmount() / getKHANAmount();
-    }
     
+
     // @gwAmount amount of gw tokens in wei
     function exchangeGWToKHAN( uint gwAmount ) public {
         
-        require( gwAmount < 50000000000000000000 );
+        require( gwAmount < maxValueToExchange );
         
         uint khanToTransfer = getKhanToTransfer(gwAmount );
         
@@ -66,12 +70,32 @@ contract MarketMaker
         //transfer KHAN from market maker address to GW seller address
         ERC20(khanAddress).transfer(msg.sender, khanToTransfer);
         
+        checkGwBlanace();
         //call event to log
         emit exchange( msg.sender, gwAmount, khanToTransfer, "GW", "KHAN" );
     }
+    
+    function checkGwBlanace () public {
+        
+        if( ERC20(gwAddress).balanceOf(address(this)) < minTokenBalance) 
+        {
+            exchangeKHANtoGW(buyOnMinAmount); //sell KHAN
+        }
+        
+        if( ERC20(khanAddress).balanceOf(address(this)) < minTokenBalance) 
+        {
+            exchangeGWToKHAN(buyOnMinAmount); //sell GW
+        }
+    }
+    
+        // @khanAmount 
+    function getGWToTransfer( uint khanAmount ) public view returns (uint) {
+        return khanAmount * getGWAmount() / getKHANAmount();
+    }
+
 
     // @gwAmount 
-    function getKhanToTransfer (uint gwAmount) public returns (uint) {
+    function getKhanToTransfer (uint gwAmount) public view returns (uint) {
         return gwAmount * getKHANAmount() / getGWAmount();
     }
     

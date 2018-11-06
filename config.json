@@ -1,8 +1,11 @@
 {
     "account": "0x2EC5973E8847099E0234a1c567997d8fCDfE545C",
-    "host": "207.38.89.152",
+    "host": "85.93.89.193",
     "port": "8599",
-    "network_id": "2059",
+    "network_id": "2060",
     "private_key": "54480b163807bcd056d2730353c9778b587a05b4ac5764f88b56c85e56972439",
-    "private_key_pwd": "mnbv1234"
+    "private_key_pwd": "mnbv1234",
+    "max_exchange_value_in_wei": "5000000000000000000",
+    "min_contract_balance_in_wei": "10000000000000000000",
+    "amount_to_buy_on_min_in_wei": "4990000000000000000"
 }
