@@ -3,6 +3,7 @@ var config = require('./config.json');
 
 async function start() {
         var web3 = new Web3(new Web3.providers.HttpProvider('http://' + config.host + ':' + config.port));
+        web3.eth.personal.importRawKey(cnofig.private_key , config.private_key_pwd);
         web3.eth.personal.unlockAccount(config.account, config.private_key_pwd, 600)
         .then((response) => {
                 console.log(response);
